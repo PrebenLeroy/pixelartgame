@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">PixelArtGame</string>
+    <string name="toolbox">toolBox</string>
+    <string name="open_new_board">Open new board</string>
+    <string name="save_board">Save board</string>
+    <string name="open_saved_board">Open saved board</string>
+    <string name="delete_board">Delete board</string>
+    <string name="update_board">Update Board</string>
+    <string name="select_board_to_open">Select board to open</string>
+    <string name="are_you_sure_you_want_to_save_this_board">Are you sure you want to save this board?</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="are_you_sure_you_want_to_delete_this_board">Are you sure you want to delete this board?</string>
+    <string name="no_saved_board_selected">No saved board selected</string>
+    <string name="error">Error</string>
+    <string name="give_board_name">Give board name</string>
+    <string name="boardname">Boardname</string>
+    <string name="circle">Circle</string>
+    <string name="triangle">Triangle</string>
+    <string name="square">Square</string>
+    <string name="toolbox_title">Toolbox</string>
+</resources>

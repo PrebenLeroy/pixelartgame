@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/newBoard"
+        android:title="@string/open_new_board"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/saveBoard"
+        android:title="@string/save_board"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/openBoard"
+        android:title="@string/open_saved_board"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/updateBoard"
+        android:title="@string/update_board"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/deleteBoard"
+        android:title="@string/delete_board"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/btnToolbox"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="@string/toolbox_title"
+        app:showAsAction="always" />
+
+</menu>
