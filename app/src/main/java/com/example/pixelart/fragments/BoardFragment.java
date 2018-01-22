@@ -10,6 +10,7 @@ import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -24,6 +25,7 @@ import android.widget.Spinner;
 import com.example.pixelart.R;
 import com.example.pixelart.Views.Board;
 import com.example.pixelart.Views.PixelView;
+import com.example.pixelart.activities.MainActivity;
 import com.example.pixelart.persistency.PixelArtContract;
 
 import java.util.ArrayList;
@@ -72,7 +74,19 @@ public class BoardFragment extends Fragment {
         board.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                checkTouch(event);
+                int x = (int) event.getX();
+                int y = (int) event.getY();
+
+                for (int i = 0; i < board.getChildCount(); i++) {
+                    PixelView pixelView = (PixelView) board.getChildAt(i);
+                    if (x > pixelView.getLeft() && x < pixelView.getRight() && y > pixelView.getTop() && y < pixelView.getBottom()) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+                            pixelView.setBackgroundColor(currentColor);
+                            pixelView.getTextView().setBackgroundColor(currentColor);
+                            pixelView.setPixelColor(currentColor);
+                        }
+                    }
+                }
                 return true;
             }
         });
@@ -80,21 +94,6 @@ public class BoardFragment extends Fragment {
         return v;
     }
 
-    private void checkTouch(MotionEvent event) {
-        int x = (int) event.getX();
-        int y = (int) event.getY();
-
-        for (int i = 0; i < board.getChildCount(); i++) {
-            PixelView pixelView = (PixelView) board.getChildAt(i);
-            if (x > pixelView.getLeft() && x < pixelView.getRight() && y > pixelView.getTop() && y < pixelView.getBottom()) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
-                    pixelView.setBackgroundColor(currentColor);
-                    pixelView.getTextView().setBackgroundColor(currentColor);
-                    pixelView.setPixelColor(currentColor);
-                }
-            }
-        }
-    }
 
     public void drawCircle() {
         int[] x = {109, 110, 111, 127, 128, 132, 133, 146, 154, 165, 175,
