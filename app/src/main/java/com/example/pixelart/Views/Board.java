@@ -62,15 +62,7 @@ public class Board extends GridLayout {
     private int calculateCardWidth() {
         DisplayMetrics metrics = new DisplayMetrics();
         ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        int actionBarHeight = getActionBarHeight();
-        return Math.min(metrics.widthPixels, metrics.heightPixels-actionBarHeight)/grid.getGridSize();
-    }
-
-    private int getActionBarHeight() {
-        final TypedArray ta = getContext().getTheme().obtainStyledAttributes(
-                new int[]{android.R.attr.actionBarSize});
-        int actionBarHeight = (int) ta.getDimension(0, 0);
-        return actionBarHeight;
+        return Math.min(metrics.widthPixels, metrics.heightPixels)/grid.getGridSize();
     }
 
     public void updateBoard() {
